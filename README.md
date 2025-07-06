@@ -6,7 +6,7 @@ It is shitty and you should probably not use it.
 
 I am making it public with deep shame.
 
-Ways in which it is shitty:
+Ways in which it is shitty
 ---------------------------
 
 - Embeds steamcmd with no cache bursting for the actual install part.
@@ -15,7 +15,7 @@ Ways in which it is shitty:
 - No multi stage build, so the resultant image has a ton of unecessary cruft
 - Does not actually setups the 'backups' directory in the data volume
 
-Ways in which it's alright:
+Ways in which it's alright
 ----------------------------
 
 - Single volume at /data for all data
