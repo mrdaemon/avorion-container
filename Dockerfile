@@ -42,6 +42,8 @@ RUN "${STEAMCMD_DIR}/steamcmd.sh" \
         +app_update 565060 validate \
         +quit
 
+COPY files/entrypoint.sh "${AVORION_DIR}/container-run.sh"
+
 WORKDIR "${AVORION_DIR}"
 
 VOLUME ["/data"]
@@ -49,4 +51,4 @@ VOLUME ["/data"]
 EXPOSE 27000/udp 27000/tcp 27003/udp 27020/udp 27021/udp
 
 # We do entrypoint so we can pass additional arguments at runtime
-ENTRYPOINT ["./server.sh"]
+ENTRYPOINT ["./container-run.sh"]

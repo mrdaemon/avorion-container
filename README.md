@@ -19,7 +19,7 @@ Ways in which it's alright
 ----------------------------
 
 - Single volume at /data for all data
-- Simply wraps `server.sh` as entrypoint
+- ~~Simply wraps `server.sh` as entrypoint~~
 
 Quickstart
 ----------
