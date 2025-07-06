@@ -42,7 +42,15 @@ RUN "${STEAMCMD_DIR}/steamcmd.sh" \
         +app_update 565060 validate \
         +quit
 
-COPY --chown=$CUID --chmod=755 files/entrypoint.sh "${AVORION_DIR}/container-run.sh"
+# Build server doesn't do buildkit currently, so here is
+# this awful kludge. This is getting dirtier by the minute.
+USER root
+
+COPY files/entrypoint.sh "${AVORION_DIR}/container-run.sh"
+RUN chown "${CUID}" "${AVORION_DIR}/container-run.sh" && \
+    chmod 755 "${AVORION_DIR}/container-run.sh"
+
+USER steam
 
 WORKDIR "${AVORION_DIR}"
 
