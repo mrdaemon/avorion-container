@@ -25,7 +25,7 @@ RUN apt-get update && \
     mkdir -p "${VOLUME_DIR}" && \
     chown -R "${CUID}:${CUID}" "${VOLUME_DIR}"
 
-USER steam
+USER $USER
 
 RUN mkdir -p "${STEAMCMD_DIR}" && \
     curl -sSL "https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz" | tar -xvz -C "${STEAMCMD_DIR}" && \
@@ -50,11 +50,11 @@ COPY files/entrypoint.sh "${AVORION_DIR}/container-run.sh"
 RUN chown "${CUID}" "${AVORION_DIR}/container-run.sh" && \
     chmod 755 "${AVORION_DIR}/container-run.sh"
 
-USER steam
+USER $USER
 
 WORKDIR "${AVORION_DIR}"
 
-VOLUME ["/data"]
+VOLUME [${VOLUME_DIR}]
 
 EXPOSE 27000/udp 27000/tcp 27003/udp 27020/udp 27021/udp
 
