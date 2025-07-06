@@ -43,6 +43,7 @@ RUN "${STEAMCMD_DIR}/steamcmd.sh" \
         +quit
 
 COPY files/entrypoint.sh "${AVORION_DIR}/container-run.sh"
+RUN chmod +x "${AVORION_DIR}/container-run.sh"
 
 WORKDIR "${AVORION_DIR}"
 
