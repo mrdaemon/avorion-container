@@ -49,4 +49,4 @@ VOLUME ["/data"]
 EXPOSE 27000/udp 27000/tcp 27003/udp 27020/udp 27021/udp
 
 # We do entrypoint so we can pass additional arguments at runtime
-ENTRYPOINT ["server.sh"]
+ENTRYPOINT ["./server.sh"]
