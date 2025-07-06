@@ -42,8 +42,7 @@ RUN "${STEAMCMD_DIR}/steamcmd.sh" \
         +app_update 565060 validate \
         +quit
 
-COPY files/entrypoint.sh "${AVORION_DIR}/container-run.sh"
-RUN chmod +x "${AVORION_DIR}/container-run.sh"
+COPY --chown=$CUID --chmod=755 files/entrypoint.sh "${AVORION_DIR}/container-run.sh"
 
 WORKDIR "${AVORION_DIR}"
 
