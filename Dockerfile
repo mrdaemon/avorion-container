@@ -1,6 +1,6 @@
-FROM debian:bookworm-slim
+FROM ubuntu:24.04
 
-ARG CUID=1000 # UID of runtime user
+ARG CUID=3000 # UID of runtime user
 
 ENV USER="steam"
 ENV HOMEDIR="/home/${USER}"
