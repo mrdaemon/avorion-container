@@ -37,8 +37,8 @@ RUN mkdir -p "${HOMEDIR}/.avorion/galaxies" && \
     ln -sf "${VOLUME_DIR}" "${HOMEDIR}/.avorion/galaxies/avorion_galaxy"
 
 RUN "${STEAMCMD_DIR}/steamcmd.sh" \
-        +login anonymous \
         +force_install_dir "${AVORION_DIR}" \
+        +login anonymous \
         +app_update 565060 validate \
         +quit
 
