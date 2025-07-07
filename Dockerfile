@@ -7,6 +7,7 @@ ENV HOMEDIR="/home/${USER}"
 ENV STEAMCMD_DIR="${HOMEDIR}/steamcmd"
 ENV AVORION_DIR="${HOMEDIR}/avorion"
 ENV VOLUME_DIR="/data"
+ENV CUID=$CUID
 
 RUN apt-get update && \
     apt-get install -y --no-install-recommends --no-install-suggests \
