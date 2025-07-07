@@ -1,13 +1,12 @@
-FROM ubuntu:24.04
+FROM debian:bookworm-slim
 
-ARG CUID=3000 # UID of runtime user
+ARG CUID=1000 # UID of runtime user
 
 ENV USER="steam"
 ENV HOMEDIR="/home/${USER}"
 ENV STEAMCMD_DIR="${HOMEDIR}/steamcmd"
 ENV AVORION_DIR="${HOMEDIR}/avorion"
 ENV VOLUME_DIR="/data"
-ENV CUID=3000
 
 RUN apt-get update && \
     apt-get install -y --no-install-recommends --no-install-suggests \
@@ -20,7 +19,7 @@ RUN apt-get update && \
         unzip && \
     sed -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen && \
     dpkg-reconfigure --frontend=noninteractive locales && \
-    useradd -u 3000 -m "${USER}" && \
+    useradd -u "${CUID}" -m "${USER}" && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* && rm -rf /tmp/* /var/tmp/* && \
     mkdir -p "${VOLUME_DIR}" && \
